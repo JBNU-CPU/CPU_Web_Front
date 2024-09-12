@@ -16,10 +16,10 @@ const Button  = styled.button`
     }
 `;
 
-const Complete_Btn = () => {
+const Certification = () => {
     return(
-        <Button>로그인</Button>
+        <Button>인증요청</Button>
     );
 };
 
-export default Complete_Btn;
+export default Certification;
