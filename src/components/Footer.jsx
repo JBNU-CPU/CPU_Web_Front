@@ -15,7 +15,7 @@ const Top = styled.div`
     align-items: center;
     width: calc(100%);
     background: none;
-    padding:20px;
+    padding:30px;
 `;
 
 const LogoWrapper = styled.div`
@@ -43,7 +43,7 @@ const Icons = styled.div`
     gap: 20px; 
     background: #024387;
     position: absolute;
-    right: 20px;
+    right: 30px;
 `;
 
 const Insta = styled(GrInstagram)`
@@ -70,7 +70,7 @@ const Main = styled.div`
     margin: 0;
     padding: 0;
     background: none;
-    padding: 20px;
+    padding: 30px;
     padding-top: 0px;
     font-size: 12px;
     color: white;
