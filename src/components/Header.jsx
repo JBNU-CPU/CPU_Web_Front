@@ -53,6 +53,10 @@ const Hamburger = styled(GiHamburgerMenu)`
     position: absolute;
     right: 20px;
     cursor: pointer;
+    z-index: auto;
+    &:hover{
+        color: gray;
+    }
 `
 
 // to경로 메인 페이지로 이동하도록 설정하기

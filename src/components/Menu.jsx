@@ -1,36 +1,18 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import { GiHamburgerMenu } from "react-icons/gi";
 import logo from './logo/CPU_logo_white.png';
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-    width: calc(50%);
-    height: 1000px;
+    width: calc(40%);
+    height: 100%;
     background: black;
     position: absolute;
     right: 0;
     display: flex;
     flex-direction: column;
-`
-
-
-const IconWapper = styled.div`
-    display: flex;
-    align-items: flex-end;
-    background: none;
-`
-const Hamburger = styled(GiHamburgerMenu)`
-    color: white;
-    background: black;
-    width: 31px;
-    height: 31px;
-    cursor: pointer;
-    padding: 20px;
-    margin-left: auto;
-    &:hover{
-        color:gray
-    }
+    z-index: auto;
+    top: 60px;
 `
 
 const LogoWrapper = styled.div`
@@ -125,9 +107,6 @@ const Menu = () => {
 
     return (
         <Container>
-            <IconWapper>
-                <Hamburger/>
-            </IconWapper>
             <LogoWrapper>
                 <Logo src={logo}/>
             </LogoWrapper>

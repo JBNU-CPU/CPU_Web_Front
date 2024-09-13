@@ -8,8 +8,7 @@ import Menu from "./components/Menu";
 const App = () => {
   return(
     <>
-      {/* <Header/> */}
-      <Menu/>
+      <Header/>
     </>
   );
 };
