@@ -12,6 +12,7 @@ import Section from '../pages/Section';
 import Study from '../pages/Study';
 import Recruit from '../pages/Recruit';
 import Management from '../pages/Management';
+import Mypage from '../pages/Mypage';
 
 const AppRoutes = () => {
     return (
@@ -28,6 +29,7 @@ const AppRoutes = () => {
             <Route path='/study' element={<Study />} />
             <Route path='/recruit' element={<Recruit />} />
             <Route path='/management' element={<Management />} />
+            <Route path = '/mypage' element={<Mypage/>}/>
         </Routes>
     );
 };

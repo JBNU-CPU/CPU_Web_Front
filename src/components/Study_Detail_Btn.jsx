@@ -30,11 +30,11 @@ const Text = styled.span`
     margin-left: 4px; 
 `;
 
-const Detail_Btn = () => {
+const Study_Detail_Btn = () => {
     const navigate = useNavigate();
 
     const onClick = () => {
-        navigate('/'); // 누르면 이동할 url주소
+        navigate('/study'); // 누르면 이동할 url주소
     }
 
     return (
@@ -44,4 +44,4 @@ const Detail_Btn = () => {
     );
 };
 
-export default Detail_Btn;
+export default Study_Detail_Btn;
