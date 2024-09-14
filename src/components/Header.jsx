@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 import Menu from "./Menu";
 
 const MainHeader = styled.header`
-    width : calc(100%);  
+    width : 100%;  
     height: 60px;
     background: black;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
     @media screen and (min-width : 768px) {
         justify-content: flex-start;
         padding-left: 20px;

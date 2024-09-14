@@ -5,9 +5,10 @@ import { BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-    width: calc(100%);
+    width: 100%;
     height: 280px;
     background: #024387;
+    overflow-x: hidden;
 `;
 
 const Top = styled.div`
