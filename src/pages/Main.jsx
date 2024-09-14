@@ -1,6 +1,6 @@
 const Main = () => {
     return(
-        <p>test</p>
+        <p>Main page</p>
     );
 };
 

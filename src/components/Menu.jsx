@@ -11,7 +11,7 @@ const Container = styled.div`
     right: 0;
     display: flex;
     flex-direction: column;
-    z-index: auto;
+    z-index: 10;
     top: 60px;
 `
 
@@ -111,14 +111,14 @@ const Menu = () => {
                 <Logo src={logo}/>
             </LogoWrapper>
             <MenuWrapper>
-                <Menuli><StyledLink to='/'>About CPU</StyledLink></Menuli>
+                <Menuli><StyledLink to='/about'>About CPU</StyledLink></Menuli>
                 <Menuli onClick={handleStudyClick}>Study</Menuli>
                 {isStudyOpen && (
                     <SubMenuWrapper>
                         <SubMenu>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink>세션</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink>스터디</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink>프로젝트</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/section'>세션</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/study'>스터디</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='project'>프로젝트</StyledLink></Menuli>
                         </SubMenu>
                     </SubMenuWrapper>
                 )}
@@ -126,17 +126,17 @@ const Menu = () => {
                 {isBoardOpen && (
                     <SubMenuWrapper>
                         <SubMenu>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink>공지사항</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink>커뮤니티</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink>갤러리</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = 'notification'>공지사항</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = 'community'>커뮤니티</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = 'gallery'>갤러리</StyledLink></Menuli>
                         </SubMenu>
                     </SubMenuWrapper>
                 )}
-                <Menuli><StyledLink>Recruit</StyledLink></Menuli>
-                <Menuli><StyledLink>Management</StyledLink></Menuli>
+                <Menuli><StyledLink to = 'recruit'>Recruit</StyledLink></Menuli>
+                <Menuli><StyledLink to = 'management'>Management</StyledLink></Menuli>
             </MenuWrapper>
             <LoginWrapper>
-                <Login><StyledLink>Log in</StyledLink></Login>
+                <Login><StyledLink to = '/login'>Log in</StyledLink></Login>
             </LoginWrapper>
         </Container>
     );

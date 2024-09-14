@@ -1,6 +1,6 @@
 const About = () => {
     return(
-        <p>about test</p>
+        <p>about page</p>
     );
 };
 
