@@ -97,6 +97,7 @@ const StyledLink = styled(Link)`
 `
 
 // 인증 부분에서 certi값에 따라 컴포넌트 변화하도록 코드 수정하기
+// join에서 다음 버튼 누르면 join2로 이동하도록 해야함
 const Join = () => {
     const certi = true;
     return(
@@ -113,7 +114,7 @@ const Join = () => {
                 </CertificationWrapper>
                 {certi === true ? null : <StyledInput type="text" placeholder="인증번호"/>}
                 <NextWrapper>
-                    <Next_Btn/>
+                    <Link to = '/join2'><Next_Btn/></Link>
                 </NextWrapper>
                 <QuestWrapper>
                     <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>

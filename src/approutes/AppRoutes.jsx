@@ -13,6 +13,7 @@ import Study from '../pages/Study';
 import Recruit from '../pages/Recruit';
 import Management from '../pages/Management';
 import Mypage from '../pages/Mypage';
+import Join2 from '../pages/Join2';
 
 const AppRoutes = () => {
     return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
             <Route path='/community' element={<Community />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/join' element={<Join />} />
+            <Route path='/join2' element={<Join2/>}/>
             <Route path='/login' element={<Login />} />
             <Route path='/notification' element={<Notification />} />
             <Route path='/project' element={<Project />} />
