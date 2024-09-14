@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -63,10 +63,10 @@ const StyledInput = styled.input`
 const CertificationWrapper = styled.div`
     margin: 0;
     padding: 0;
-    background: none;
     position: relative;
     padding-left: 230px;
-    padding-bottom: 25px ;
+    padding-bottom: 25px;
+    background: none;
 `
 
 const NextWrapper = styled.div`
@@ -99,7 +99,12 @@ const StyledLink = styled(Link)`
 // 인증 부분에서 certi값에 따라 컴포넌트 변화하도록 코드 수정하기
 // join에서 다음 버튼 누르면 join2로 이동하도록 해야함
 const Join = () => {
-    const certi = true;
+    const [certi,setCerti] = useState(false);
+
+    const CertiClick = () => {
+        setCerti(true);
+    };
+
     return(
         <>
             <Header/>
@@ -109,10 +114,10 @@ const Join = () => {
                 <StyledInput type='text' placeholder="이름을 입력해주세요"/>
                 <EmailText>이메일</EmailText>
                 <StyledInput type = 'email' placeholder="이메일 주소를 입력해주세요"/>
-                <CertificationWrapper>
-                    {certi === true ? <Certification/> : <Resend_Btn/>}
+                <CertificationWrapper onClick={CertiClick}>
+                    {certi ? <Resend_Btn/> : <Certification/>}
                 </CertificationWrapper>
-                {certi === true ? null : <StyledInput type="text" placeholder="인증번호"/>}
+                {certi ? <StyledInput type="text" placeholder="인증번호"/> : null}
                 <NextWrapper>
                     <Link to = '/join2'><Next_Btn/></Link>
                 </NextWrapper>
