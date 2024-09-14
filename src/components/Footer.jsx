@@ -50,7 +50,7 @@ const Insta = styled(GrInstagram)`
     width: 25px;
     height: 25px;
     cursor: pointer;
-    color: black;
+    color: white;
     background: #024387;
 `;
 
@@ -58,7 +58,7 @@ const Github = styled(BsGithub)`
     width: 25px;
     height: 25px;
     cursor: pointer;
-    color: black;
+    color: white;
     background: #024387;
 `;
 
@@ -91,8 +91,8 @@ const Footer = () => {
                     <Name>전북대학교<br />중앙 학술 컴퓨터 동아리 CPU</Name>
                 </LogoWrapper>
                 <Icons>
-                    <StyledLink to="/"><Insta /></StyledLink>
-                    <StyledLink to="/"><Github /></StyledLink>
+                    <StyledLink to="https://www.instagram.com/cpu_jbnu/"><Insta /></StyledLink>
+                    <StyledLink to="https://github.com/JBNU-CPU"><Github /></StyledLink>
                 </Icons>
             </Top>
             <Main>
