@@ -19,7 +19,7 @@ const Button  = styled.button`
 
 const Complete_Btn = ({onClick}) => {
     return(
-        <Button onClick={onClick}>완료</Button>
+        <Button onClick={onClick}>로그인</Button>
     );
 };
 

@@ -14,6 +14,7 @@ import Recruit from '../pages/Recruit';
 import Management from '../pages/Management';
 import Mypage from '../pages/Mypage';
 import Join2 from '../pages/Join2';
+import FindPassword from '../pages/FindPassword';
 
 const AppRoutes = () => {
     return (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
             <Route path='/recruit' element={<Recruit />} />
             <Route path='/management' element={<Management />} />
             <Route path = '/mypage' element={<Mypage/>}/>
+            <Route path='/findpassword' element={<FindPassword/>}/>
         </Routes>
     );
 };

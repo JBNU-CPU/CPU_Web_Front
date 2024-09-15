@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useRef, useEffect} from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -103,6 +103,20 @@ const StyledLink = styled(Link)`
 const Join = () => {
     const [certi,setCerti] = useState(false);
     const navigate = useNavigate();
+    const firstInputRef = useRef(null);
+    const secondInputRef= useRef(null);
+
+    useEffect(() => {
+        if(firstInputRef.current){
+            firstInputRef.current.focus();
+        }
+    },[]);
+
+    useEffect(() => {
+        if(certi && secondInputRef.current){
+            secondInputRef.current.focus();
+        }
+    },[certi]);
 
     const CertiClick = () => {
         setCerti(true);
@@ -118,13 +132,13 @@ const Join = () => {
             <Container>
                 <MainName>Join</MainName>
                 <NameText>이름</NameText>
-                <StyledInput type='text' placeholder="이름을 입력해주세요"/>
+                <StyledInput type='text' placeholder="이름을 입력해주세요" ref= {firstInputRef}/>
                 <EmailText>이메일</EmailText>
                 <StyledInput type = 'email' placeholder="이메일 주소를 입력해주세요"/>
                 <CertificationWrapper onClick={CertiClick}>
                     {certi ? <Resend_Btn/> : <Certification/>}
                 </CertificationWrapper>
-                {certi ? <StyledInput type="text" placeholder="인증번호"/> : null}
+                {certi ? <StyledInput type="text" placeholder="인증번호" ref={secondInputRef}/> : null}
                 <NextWrapper>
                     <Next_Btn onClick={Joinnavigate}/>
                 </NextWrapper>
