@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Login_Btn from "../components/Login_Btn"
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.main`
     width: 100%;
@@ -78,7 +79,11 @@ const StyledLink = styled(Link)`
 // join에서 다음 버튼 누르면 join2로 이동하도록 해야함
 // useNavigate로 바꿔야함 -> 비동기에서는 useNavigate가 맞는 표현
 const Join = () => {
+    const [username,setusername] = useState("");
+    const [password, setpassword] = useState("");
     const firstInputRef = useRef(null);
+    const LoginNavigate = useNavigate();
+
 
     useEffect(() => {
         if(firstInputRef.current){
@@ -86,18 +91,24 @@ const Join = () => {
         }
     },[]);
 
+    const onClick = () => {
+        alert('로그인 되었습니다');
+        LoginNavigate('/');
+    };
+
+    const isButtonActive = username && password;
     return(
         <>
             <Header/>
             <Container>
                 <MainName>Log in</MainName>
-                <StyledInput type='text' placeholder="아이디를 입력해주세요" ref = {firstInputRef}/>
-                <StyledInput type = 'password' placeholder="비밀번호를 입력해주세요"/>
+                <StyledInput type='text' placeholder="아이디를 입력해주세요" ref = {firstInputRef} value={username} onChange={(e)=>{setusername(e.target.value)}}/>
+                <StyledInput type = 'password' placeholder="비밀번호를 입력해주세요" value={password} onChange = {(e) => {setpassword(e.target.value)}}/>
                 <FindPassWrapper>
                     <StyledLink to ='/findpassword'><FindPass>비밀번호 찾기</FindPass></StyledLink>
                 </FindPassWrapper>
                 <LoginWrapper>
-                    <Login_Btn/>
+                    <Login_Btn isActive = {isButtonActive} onClick={onClick}/>
                 </LoginWrapper>
                 <JoinWrapper>
                     <StyledLink to = '/join'>회원가입</StyledLink>

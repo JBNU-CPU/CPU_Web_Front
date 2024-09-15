@@ -5,7 +5,7 @@ const Button  = styled.button`
     width: 70px;
     height: 30px;
     border-radius: 5px;
-    background: #6F7486;
+    background: ${({isActive}) => (isActive ? '#3987EC' : '#6F7486')};
     text-align: center;
     font : bold 12px 'arial';
     border : none;
@@ -13,13 +13,13 @@ const Button  = styled.button`
     color:#E6E9F3;
     line-height: 12.5px;
     &:hover{
-        cursor: pointer;
+        cursor : ${({isActive}) => (isActive ? 'pointer' : 'default')};
     }
 `;
 
-const Certification = () => {
+const Certification = ({isActive}) => {
     return(
-        <Button>인증요청</Button>
+        <Button isActive={isActive}>인증요청</Button>
     );
 };
 

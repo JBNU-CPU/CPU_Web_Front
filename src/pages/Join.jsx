@@ -101,7 +101,10 @@ const StyledLink = styled(Link)`
 // join에서 다음 버튼 누르면 join2로 이동하도록 해야함
 // useNavigate로 바꿔야함 -> 비동기에서는 useNavigate가 맞는 표현
 const Join = () => {
+    const [personName, setpersonName] = useState("");
+    const [email,setemail] = useState("");
     const [certi,setCerti] = useState(false);
+    const [certinum, setcertinum] = useState("");
     const navigate = useNavigate();
     const firstInputRef = useRef(null);
     const secondInputRef= useRef(null);
@@ -119,12 +122,17 @@ const Join = () => {
     },[certi]);
 
     const CertiClick = () => {
-        setCerti(true);
+        if(personName && email){
+            setCerti(true)
+        }
     };
 
     const Joinnavigate = () => {
         navigate('/join2')
     }
+
+    const isButtonActive = personName && email;
+    const isNextButtonActive = certinum;
 
     return(
         <>
@@ -132,15 +140,15 @@ const Join = () => {
             <Container>
                 <MainName>Join</MainName>
                 <NameText>이름</NameText>
-                <StyledInput type='text' placeholder="이름을 입력해주세요" ref= {firstInputRef}/>
+                <StyledInput type='text' placeholder="이름을 입력해주세요" ref= {firstInputRef} value={personName} onChange={(e) => {setpersonName(e.target.value)}}/>
                 <EmailText>이메일</EmailText>
-                <StyledInput type = 'email' placeholder="이메일 주소를 입력해주세요"/>
+                <StyledInput type = 'email' placeholder="이메일 주소를 입력해주세요" value={email} onChange={(e) => {setemail(e.target.value)}}/>
                 <CertificationWrapper onClick={CertiClick}>
-                    {certi ? <Resend_Btn/> : <Certification/>}
+                    {certi ? <Resend_Btn/> : <Certification isActive={isButtonActive}/>}
                 </CertificationWrapper>
-                {certi ? <StyledInput type="text" placeholder="인증번호" ref={secondInputRef}/> : null}
+                {certi ? <StyledInput type="text" placeholder="인증번호" ref={secondInputRef} value={certinum} onChange={(e) => setcertinum(e.target.value)}/> : null}
                 <NextWrapper>
-                    <Next_Btn onClick={Joinnavigate}/>
+                    <Next_Btn onClick={Joinnavigate} isActive={isNextButtonActive}/>
                 </NextWrapper>
                 <QuestWrapper>
                     <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>

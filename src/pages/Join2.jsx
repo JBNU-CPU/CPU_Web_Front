@@ -110,6 +110,11 @@ const StyledLink = styled(Link)`
 `
 
 const Join2 = () => {
+    const [nickName,setnickName] = useState("");
+    const [username, setusername] =useState("");
+    const [password,setpassword] = useState("");
+    const [repassword, setrepassword] = useState("");
+
     const CompleteNavigate= useNavigate();
     const firstInputRef = useRef(null);
 
@@ -123,21 +128,24 @@ const Join2 = () => {
         alert('회원가입이 완료되었습니다')
         CompleteNavigate('/')
     }
+
+    const passwordRight = (password && repassword) && (password === repassword);
+    const isButtonActive = nickName && username && passwordRight;
     return(
         <>
             <Header/>
             <Container>
                 <MainName>Join</MainName>
                 <NickText>닉네임</NickText>
-                <StyledInput type='text' placeholder="닉네임을 입력해주세요" ref={firstInputRef}/>
+                <StyledInput type='text' placeholder="닉네임을 입력해주세요" ref={firstInputRef} value={nickName} onChange={(e) => {setnickName(e.target.value)}}/>
                 <IDText>아이디(학번)</IDText>
-                <StyledInput type='id' placeholder="학번을 입력해주세요"/>
+                <StyledInput type='id' placeholder="학번을 입력해주세요" value={username} onChange={(e)=>{setusername(e.target.value)}}/>
                 <PasswordText>비밀번호</PasswordText>
-                <StyledInput type='password' placeholder="비밀번호를 입력해주세요"/>
+                <StyledInput type='password' placeholder="비밀번호를 입력해주세요" value={password} onChange={(e) => setpassword(e.target.value)}/>
                 <RePasswordText>비밀번호 확인</RePasswordText>
-                <StyledInput type='password' placeholder="비밀번호를 다시 입력해주세요"/>
+                <StyledInput type='password' placeholder="비밀번호를 다시 입력해주세요" value={repassword} onChange={(e) => setrepassword(e.target.value)}/>
                 <CompleteWrapper>
-                    <Complete_Btn onClick = {onClick}/>
+                    <Complete_Btn onClick = {onClick} isActive={isButtonActive}/>
                 </CompleteWrapper>
                 <QuestWrapper>
                     <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>
