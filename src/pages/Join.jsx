@@ -6,6 +6,7 @@ import Certification from "../components/Certification";
 import Next_Btn from "../components/Next_Btn";
 import Resend_Btn from "../components/Resend_Btn";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Container = styled.main`
@@ -98,12 +99,18 @@ const StyledLink = styled(Link)`
 
 // 인증 부분에서 certi값에 따라 컴포넌트 변화하도록 코드 수정하기
 // join에서 다음 버튼 누르면 join2로 이동하도록 해야함
+// useNavigate로 바꿔야함 -> 비동기에서는 useNavigate가 맞는 표현
 const Join = () => {
     const [certi,setCerti] = useState(false);
+    const navigate = useNavigate();
 
     const CertiClick = () => {
         setCerti(true);
     };
+
+    const Joinnavigate = () => {
+        navigate('/join2')
+    }
 
     return(
         <>
@@ -119,7 +126,7 @@ const Join = () => {
                 </CertificationWrapper>
                 {certi ? <StyledInput type="text" placeholder="인증번호"/> : null}
                 <NextWrapper>
-                    <Link to = '/join2'><Next_Btn/></Link>
+                    <Next_Btn onClick={Joinnavigate}/>
                 </NextWrapper>
                 <QuestWrapper>
                     <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>

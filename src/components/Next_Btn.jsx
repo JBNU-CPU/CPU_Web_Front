@@ -17,9 +17,9 @@ const Button  = styled.button`
     }
 `;
 
-const Next_Btn = () => {
+const Next_Btn = ({onClick}) => {
     return(
-        <Button>다음</Button>
+        <Button onClick={onClick}>다음</Button>
     );
 };
 
