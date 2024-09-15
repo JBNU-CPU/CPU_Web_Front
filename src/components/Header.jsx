@@ -15,7 +15,6 @@ const MainHeader = styled.header`
     overflow-x: hidden;
     @media screen and (min-width : 768px) {
         justify-content: flex-start;
-        padding-left: 20px;
     }
 `;
 
@@ -70,7 +69,7 @@ const Header = () => {
 
     return(
         <MainHeader>
-            <ImgLink to = '/'><Img src={logo} alt="cpu_white_logo" /></ImgLink><Text>C P U</Text> 
+            <ImgLink to = '/'><Img src={logo} alt="cpu_white_logo"/></ImgLink><Text>C P U</Text> 
             <Hamburger onClick = {ToggleMenu}/>{MenuOpen && <Menu/>}
         </MainHeader>
     );

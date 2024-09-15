@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const Container = styled.main`
     width: 100%;
+    max-width: 100vw;
     height: auto;
     background: black;
     display: flex;
@@ -18,6 +19,7 @@ const Container = styled.main`
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow-x: hidden;
 `
 
 const MainName = styled.p`

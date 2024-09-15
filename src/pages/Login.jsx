@@ -15,6 +15,7 @@ const Container = styled.main`
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow-x: hidden;
 `
 
 const MainName = styled.p`
@@ -74,7 +75,6 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     font: bold 12px 'arial';
 `
-
 // 인증 부분에서 certi값에 따라 컴포넌트 변화하도록 코드 수정하기
 // join에서 다음 버튼 누르면 join2로 이동하도록 해야함
 // useNavigate로 바꿔야함 -> 비동기에서는 useNavigate가 맞는 표현
