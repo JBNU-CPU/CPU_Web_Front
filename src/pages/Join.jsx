@@ -156,7 +156,6 @@ const Join = () => {
                     <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>
                 </QuestWrapper>
             </Container>
-            <Footer/>
         </>
     );
 };
