@@ -136,8 +136,10 @@ const ReviseMemInfo2 = () => {
     const [showResend, setShowResend] = useState(false);
 
     const handleClick = () => {
-        setIsCerti(true);
-        setShowResend(true);
+        if(isCertiButton){
+            setIsCerti(true);
+            setShowResend(true);
+        }
     };
 
     const handleResend = () => {
