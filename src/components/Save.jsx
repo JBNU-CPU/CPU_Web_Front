@@ -5,7 +5,7 @@ const Button  = styled.button`
     width: 70px;
     height: 30px;
     border-radius: 5px;
-    background: #3987EC;
+    background: ${({isActive}) => (isActive ? '#3987EC' : '#6F7486')};
     text-align: center;
     font : bold 12px 'arial';
     border : none;
@@ -13,14 +13,14 @@ const Button  = styled.button`
     color:#E6E9F3;
     line-height: 12.5px;
     &:hover{
-        cursor: pointer;
+        cursor : ${({isActive}) => (isActive ? 'pointer' : 'default')};
     }
 `;
 
-const Resend_Btn = ({onClick}) => {
+const Save = ({onClick, isActive}) => {
     return(
-        <Button onClick={onClick}>재발송</Button>
+        <Button onClick={isActive?onClick:null} isActive={isActive}>저장</Button>
     );
 };
 
-export default Resend_Btn;
+export default Save;

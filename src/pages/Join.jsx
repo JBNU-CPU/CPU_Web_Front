@@ -51,7 +51,7 @@ const EmailText = styled.p`
 `
 
 const StyledInput = styled.input`
-    width: 280px;
+    width: 300px;
     height: 45px;
     background: #1B1B25;
     border : none;

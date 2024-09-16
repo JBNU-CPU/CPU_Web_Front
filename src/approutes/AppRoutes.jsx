@@ -15,6 +15,8 @@ import Management from '../pages/Management';
 import Mypage from '../pages/Mypage';
 import Join2 from '../pages/Join2';
 import FindPassword from '../pages/FindPassword';
+import ReviseMemInfo from '../pages/ReviseMemInfo';
+import ReviseMemInfo2 from '../pages/ReviseMemInfo2';
 
 const AppRoutes = () => {
     return (
@@ -34,6 +36,8 @@ const AppRoutes = () => {
             <Route path='/management' element={<Management />} />
             <Route path = '/mypage' element={<Mypage/>}/>
             <Route path='/findpassword' element={<FindPassword/>}/>
+            <Route path='/revisememberinfo' element={<ReviseMemInfo/>}/>
+            <Route path='/revisememberinfo2' element={<ReviseMemInfo2/>}/>
         </Routes>
     );
 };

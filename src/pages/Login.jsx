@@ -114,7 +114,6 @@ const Join = () => {
                     <StyledLink to = '/join'>회원가입</StyledLink>
                 </JoinWrapper>
             </Container>
-            <Footer/>
         </>
     );
 };

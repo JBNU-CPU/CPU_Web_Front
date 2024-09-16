@@ -25,7 +25,7 @@ const MainName = styled.p`
     padding-top: 63px;
 `
 const NickText = styled.p`
-    padding: 0;
+    padding: 10px;
     margin: 0;
     background: none;
     color: white;
@@ -69,7 +69,7 @@ const RePasswordText = styled.p`
 
 
 const StyledInput = styled.input`
-    width: 280px;
+    width: 300px;
     height: 45px;
     background: #1B1B25;
     border : none;

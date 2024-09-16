@@ -17,9 +17,9 @@ const Button  = styled.button`
     }
 `;
 
-const Certification = ({isActive}) => {
+const Certification = ({isActive, onClick}) => {
     return(
-        <Button isActive={isActive}>인증요청</Button>
+        <Button isActive={isActive} onClick={onClick}>인증요청</Button>
     );
 };
 
