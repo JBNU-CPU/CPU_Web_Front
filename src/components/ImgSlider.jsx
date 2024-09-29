@@ -57,7 +57,7 @@ const TitleWrap = styled.div`
   cursor : default;
   h1{
     margin : 0;
-    font-size : 60px;
+    font-size : 50px;
     background-color : rgba(0,0,0,0);
     text-shadow : 1px 1px 5px rgba(0, 0, 0, 0.7);
   }
