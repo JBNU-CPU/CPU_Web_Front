@@ -13,6 +13,9 @@ const Slider = styled.div`
   width : 100%;
   height : 300px;
   overflow : hidden;
+  @media screen and (min-width : 768px) {
+    height : 500px;
+  }
 `;
 const Images = styled.div`
   position : absolute;
