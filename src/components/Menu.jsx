@@ -116,9 +116,9 @@ const Menu = () => {
                 {isStudyOpen && (
                     <SubMenuWrapper>
                         <SubMenu>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/section'>세션</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/study'>스터디</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='project'>프로젝트</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/studymain'>세션</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/studymain'>스터디</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/studymain'>프로젝트</StyledLink></Menuli>
                         </SubMenu>
                     </SubMenuWrapper>
                 )}
