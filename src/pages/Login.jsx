@@ -6,7 +6,8 @@ import Login_Btn from "../components/Login_Btn"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Container = styled.main`
+
+const Container = styled.form`
     width: 100%;
     height: auto;
     background: black;
@@ -78,7 +79,7 @@ const StyledLink = styled(Link)`
 // 인증 부분에서 certi값에 따라 컴포넌트 변화하도록 코드 수정하기
 // join에서 다음 버튼 누르면 join2로 이동하도록 해야함
 // useNavigate로 바꿔야함 -> 비동기에서는 useNavigate가 맞는 표현
-const Join = () => {
+const Join = (props) => {
     const [username,setusername] = useState("");
     const [password, setpassword] = useState("");
     const firstInputRef = useRef(null);
@@ -91,11 +92,6 @@ const Join = () => {
         }
     },[]);
 
-    const onClick = () => {
-        alert('로그인 되었습니다');
-        LoginNavigate('/');
-    };
-
     const isButtonActive = username && password;
     return(
         <>
@@ -103,12 +99,12 @@ const Join = () => {
             <Container>
                 <MainName>Log in</MainName>
                 <StyledInput type='text' placeholder="아이디를 입력해주세요" ref = {firstInputRef} value={username} onChange={(e)=>{setusername(e.target.value)}}/>
-                <StyledInput type = 'password' placeholder="비밀번호를 입력해주세요" value={password} onChange = {(e) => {setpassword(e.target.value)}}/>
+                <StyledInput type = 'password' placeholder="비밀번호를 입력해주세요" value={password} onChange = {(e) => {setpassword(e.target.value)}}/>   
                 <FindPassWrapper>
                     <StyledLink to ='/findpassword'><FindPass>비밀번호 찾기</FindPass></StyledLink>
                 </FindPassWrapper>
                 <LoginWrapper>
-                    <Login_Btn isActive = {isButtonActive} onClick={onClick}/>
+                    <Login_Btn type="submit" isActive = {isButtonActive}/>
                 </LoginWrapper>
                 <JoinWrapper>
                     <StyledLink to = '/join'>회원가입</StyledLink>

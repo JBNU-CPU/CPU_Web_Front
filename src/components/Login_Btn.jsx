@@ -19,7 +19,7 @@ const Button  = styled.button`
 
 const Complete_Btn = ({onClick, isActive}) => {
     return(
-        <Button onClick={isActive ? onClick : null} isActive={isActive}>로그인</Button>
+        <Button onClick={isActive ? onClick : null} isActive={isActive} type='submit'>로그인</Button>
     );
 };
 

@@ -9,7 +9,7 @@ import Login from '../pages/Login';
 import Notification from '../pages/Notification';
 import Project from '../pages/Project';
 import Section from '../pages/Section';
-import Study from '../pages/Study';
+import Study from '../pages/StudyMainPage';
 import Recruit from '../pages/Recruit';
 import Management from '../pages/Management';
 import Mypage from '../pages/Mypage';
@@ -17,6 +17,7 @@ import Join2 from '../pages/Join2';
 import FindPassword from '../pages/FindPassword';
 import ReviseMemInfo from '../pages/ReviseMemInfo';
 import ReviseMemInfo2 from '../pages/ReviseMemInfo2';
+import StudyMainPage from '../pages/StudyMainPage';
 
 const AppRoutes = () => {
     return (
@@ -38,6 +39,7 @@ const AppRoutes = () => {
             <Route path='/findpassword' element={<FindPassword/>}/>
             <Route path='/revisememberinfo' element={<ReviseMemInfo/>}/>
             <Route path='/revisememberinfo2' element={<ReviseMemInfo2/>}/>
+            <Route path='/studymain' element={<StudyMainPage/>}/>
         </Routes>
     );
 };
