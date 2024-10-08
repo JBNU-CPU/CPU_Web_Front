@@ -15,6 +15,7 @@ import FindPassword from '../pages/FindPassword';
 import ReviseMemInfo from '../pages/ReviseMemInfo';
 import ReviseMemInfo2 from '../pages/ReviseMemInfo2';
 import StudyMainPage from '../pages/StudyMainPage';
+import GalleryDetail from '../pages/GalleryDetail';
 
 const AppRoutes = () => {
     return (
@@ -23,6 +24,7 @@ const AppRoutes = () => {
             <Route path='/about' element={<About />} />
             <Route path='/community' element={<Community />} />
             <Route path='/gallery' element={<Gallery />} />
+            <Route path='/galleryDetail/:id' element={<GalleryDetail/>}/>
             <Route path='/join' element={<Join />} />
             <Route path='/join2' element={<Join2/>}/>
             <Route path='/login' element={<Login />} />
