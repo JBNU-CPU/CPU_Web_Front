@@ -19,13 +19,17 @@ const Button = styled.button`
     margin-bottom : 50px;
     &:hover{
         cursor: pointer;
+        color:gray;
+        & > svg {
+            color: gray;
+        }
     }
 `;
 
 const Arrow = styled(MdOutlineArrowForwardIos)`
     margin-left: 1px;
     font-size: 12.5px;
-    color : white
+    color : white;
 `;
 
 const Text = styled.span`
