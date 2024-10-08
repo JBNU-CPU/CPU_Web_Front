@@ -24,22 +24,23 @@ const Text = styled.p`
     background: none;
     padding-left: 10px;
     font: bold 20px 'arial';
+    margin : 0;
     @media screen and (max-width: 768px){
         display: none;
     }
 `;
 
 const Img = styled.img`
-    width: 60px;
-    height: 60px;
-    background: #1b1d25;
+    width: 100%;
+    height: 100%;
+    background: black;
     padding: 0;
     margin: 0;
 `
 
 const ImgLink = styled(Link)`
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: black;
     padding: 0;
     margin: 0;
