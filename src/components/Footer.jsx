@@ -37,6 +37,7 @@ const Name = styled.p`
     font-weight: 500;
     background: #024387;
     color: white;
+    white-space: nowrap;
 `;
 
 const Icons = styled.div`
@@ -80,6 +81,7 @@ const StyledP = styled.p`
     background: none;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 `
 
 
