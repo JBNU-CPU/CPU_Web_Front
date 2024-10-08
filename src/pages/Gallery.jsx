@@ -7,6 +7,7 @@ import Slider from "../components/ImgSlider";
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
 
 import img from '../components/SliderImg/img1.png';
+import posts from '../posts/GalleryPosts';
 
 const Wrap = styled.div`
 	width : 100%;
@@ -74,12 +75,13 @@ const ArrowBack = styled(MdOutlineArrowBackIos)`
 `;
 
 const Gallery = () => {
+	const navigate = useNavigate();
 	const [currentPg, setCurrentPg] = useState(0); //현재 페이지
 	const itemsPerPg = 5; // 페이지당 나타낼 게시물 수
 
-	const totalPg = Math.ceil(items.length/itemsPerPg); // 전체 페이지 계산
+	const totalPg = Math.ceil(posts.length/itemsPerPg); // 전체 페이지 계산
 
-	const currentItem = items.slice(currentPg*itemsPerPg, (currentPg+itemsPerPg)); // 현재 페이지에 나타낼 게시물
+	const currentItem = posts.slice(currentPg*itemsPerPg, (currentPg+itemsPerPg)); // 현재 페이지에 나타낼 게시물
 
 	const nextPg = () =>{
 		if(currentPg<totalPg-1){
@@ -95,7 +97,7 @@ const Gallery = () => {
 
 	//게시물 접근
 	const handleDetail =(id) =>{
-
+		navigate(`/galleryDetail/${id}`);
 
 	}
 
@@ -106,8 +108,8 @@ const Gallery = () => {
 			
     	<Wrap>
 				{currentItem.map((item)=>(
-					<Button key={item.id} onClick={handleDetail(item.id)}>
-						<img src={item.image} alt={item.title}/>
+					<Button key={item.id} onClick={()=>handleDetail(item.id)}>
+						<img src={item.image[0]} alt={item.title}/>
 						<Text>{item.title}</Text>
 						<Text color="#BCC0CF" fontSize="12px">{item.date}</Text>
 
@@ -128,54 +130,3 @@ const Gallery = () => {
 export default Gallery;
 
 
-//게시물들..어떻게 해야 할까용가리
-const items =[
-	{
-		id: 1,
-		title: '멋대 12기 해커톤',
-		date: '2024-09-29',
-		author: '작성자',
-		description: '멋대 12기 해커톤 내용내용내용내용ㄴ애ㅛㅇ애',
-		image: img,
-	},
-	{
-		id: 2,
-		title: '두번째',
-		date: '2024-09-28',
-		author: '작성자 B',
-		description: '멋대 12기 해커톤 내용내용내용내용ㄴ애ㅛㅇ애 두번째',
-		image: img,
-	},
-	{
-		id: 3,
-		title: '멋대 12기 해커톤',
-		date: '2024-09-29',
-		author: '작성자',
-		description: '멋대 12기 해커톤 내용내용내용내용ㄴ애ㅛㅇ애',
-		image: img,
-	},
-	{
-		id: 4,
-		title: '두번째',
-		date: '2024-09-28',
-		author: '작성자 B',
-		description: '멋대 12기 해커톤 내용내용내용내용ㄴ애ㅛㅇ애 두번째',
-		image: img,
-	},
-	{
-		id: 5,
-		title: '멋대 12기 해커톤',
-		date: '2024-09-29',
-		author: '작성자',
-		description: '멋대 12기 해커톤 내용내용내용내용ㄴ애ㅛㅇ애',
-		image: img,
-	},
-	{
-		id: 6,
-		title: '두번째',
-		date: '2024-09-28',
-		author: '작성자 B',
-		description: '멋대 12기 해커톤 내용내용내용내용ㄴ애ㅛㅇ애 두번째',
-		image: img,
-	},
-]
