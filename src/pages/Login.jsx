@@ -1,7 +1,7 @@
 import React,{useState, useRef, useEffect} from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import axios from 'axios';
 import Login_Btn from "../components/Login_Btn"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -76,14 +76,31 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     font: bold 12px 'arial';
 `
-// 인증 부분에서 certi값에 따라 컴포넌트 변화하도록 코드 수정하기
-// join에서 다음 버튼 누르면 join2로 이동하도록 해야함
-// useNavigate로 바꿔야함 -> 비동기에서는 useNavigate가 맞는 표현
-const Join = (props) => {
+
+const Join = () => {
     const [username,setusername] = useState("");
     const [password, setpassword] = useState("");
     const firstInputRef = useRef(null);
     const LoginNavigate = useNavigate();
+
+    const handleLogin = async(e) => {
+        e.preventDefault();
+        try{
+            const response = await axios.post("http://3.36.125.67:8080/loginProc",{
+                username,
+                password,
+            });
+            if(response.status === 200){
+                alert("로그인 되었습니다.");
+                LoginNavigate('/main');
+            }else{
+                alert("아이디, 비밀번호를 다시 확인하세요");
+            }
+        } catch(error) {
+            console.error("로그인 실패:",error);
+            alert("로그인 중 문제가 발생했습니다.");
+        }
+    };
 
 
     useEffect(() => {
@@ -96,7 +113,7 @@ const Join = (props) => {
     return(
         <>
             <Header/>
-            <Container>
+            <Container onSubmit = {handleLogin}>
                 <MainName>Log in</MainName>
                 <StyledInput type='text' placeholder="아이디를 입력해주세요" ref = {firstInputRef} value={username} onChange={(e)=>{setusername(e.target.value)}}/>
                 <StyledInput type = 'password' placeholder="비밀번호를 입력해주세요" value={password} onChange = {(e) => {setpassword(e.target.value)}}/>   
