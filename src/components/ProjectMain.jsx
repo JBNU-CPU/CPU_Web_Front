@@ -1,5 +1,7 @@
+import React,{useContext} from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../AuthContext";
 
 const Container = styled.div`
     width: 100%;
@@ -126,6 +128,14 @@ const ProjectMain = () =>{
         StudyNavigate('/project');
     };
 
+    const onFail = () => {
+        console.log("Not client");
+        alert('비회원은 접근 불가합니다.')
+    }
+
+    // 여기 
+    const {isAuthenticated} = useContext(AuthContext);
+
     return(
         <Container>
             <Title>프로젝트</Title>
@@ -133,7 +143,7 @@ const ProjectMain = () =>{
             <SubmitWrapper>
                 <SubmitButton type='button'>개설 신청</SubmitButton>
             </SubmitWrapper>
-            <ContentWrapper onClick={onClick}>
+            <ContentWrapper onClick={isAuthenticated ? onClick : onFail}>
                 <Content>
                     <Head>
                         <Icon/>
@@ -148,5 +158,3 @@ const ProjectMain = () =>{
 };
 
 export default ProjectMain;
-
-// 신청 버튼 시 useNavigate로 이동하도록하고 페이지 구성하기
