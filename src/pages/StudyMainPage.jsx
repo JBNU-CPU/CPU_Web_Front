@@ -2,7 +2,6 @@ import React,{useState} from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";
 import SectionMain from "../components/SectionMain";
 import StudyMain from "../components/StudyMain";
 import ProjectMain from "../components/ProjectMain";
@@ -115,7 +114,6 @@ const Study = () => {
 
     }
 
-    // 이미지 못불러오는 이유?
     return(
         <Container>
             <Header/>
@@ -130,7 +128,7 @@ const Study = () => {
                 <Select onClick={ProjectClick}>프로젝트</Select>
             </SelectWrapper>
             <MainWrapper>
-                {section && <SectionMain/> }
+                {section && <SectionMain/>}
                 {study && <StudyMain/>}
                 {project && <ProjectMain/>}
             </MainWrapper>

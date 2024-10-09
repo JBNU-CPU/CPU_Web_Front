@@ -1,11 +1,11 @@
-import React,{useState, useRef, useEffect} from "react";
+import React,{useState, useRef, useEffect, useContext} from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import axios from 'axios';
 import Login_Btn from "../components/Login_Btn"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import AuthContext from "../AuthContext";
 
 const Container = styled.form`
     width: 100%;
@@ -82,6 +82,8 @@ const Join = () => {
     const [password, setpassword] = useState("");
     const firstInputRef = useRef(null);
     const LoginNavigate = useNavigate();
+    // 여기
+   const {setIsAuthenticated} = useContext(AuthContext);
 
     const handleLogin = async(e) => {
         e.preventDefault();
@@ -92,7 +94,8 @@ const Join = () => {
             });
             if(response.status === 200){
                 alert("로그인 되었습니다.");
-                LoginNavigate('/main');
+                setIsAuthenticated(true);
+                LoginNavigate('/');
             }else{
                 alert("아이디, 비밀번호를 다시 확인하세요");
             }

@@ -16,6 +16,7 @@ import ReviseMemInfo from '../pages/ReviseMemInfo';
 import ReviseMemInfo2 from '../pages/ReviseMemInfo2';
 import StudyMainPage from '../pages/StudyMainPage';
 import GalleryDetail from '../pages/GalleryDetail';
+import Project from '../pages/Project';
 
 const AppRoutes = () => {
     return (
@@ -36,6 +37,7 @@ const AppRoutes = () => {
             <Route path='/revisememberinfo' element={<ReviseMemInfo/>}/>
             <Route path='/revisememberinfo2' element={<ReviseMemInfo2/>}/>
             <Route path='/studymain' element={<StudyMainPage/>}/>
+            <Route path='/project' element={<Project/>}/>
         </Routes>
     );
 };
