@@ -14,14 +14,12 @@ const Container = styled.div`
   flex-direction : column;
   justify-content : center;
   align-items : center;
-  background-color : black;
 `;
 const MainWrap = styled.div`
   width : 90%;
   background-color : #121319;
   display : flex;
   flex-direction : column;
- 
   padding : 5%;
 `;
 const Title = styled.text`
