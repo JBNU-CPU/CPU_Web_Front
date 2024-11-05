@@ -33,7 +33,6 @@ const Text = styled.p`
 const Img = styled.img`
     width: 100%;
     height: 100%;
-    background: black;
     padding: 0;
     margin: 0;
 `

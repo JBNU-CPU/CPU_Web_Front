@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer"; 
 import MainPitcture from './Pic/StudyMain.png'
+import Slider from "../components/ImgSlider";
 
 
 // 메인 컨테이너 스타일
@@ -42,15 +43,6 @@ const Section = styled.div`
   max-width: 600px;
 `;
 
-const HeaderImg = styled.img`
-    width: 100%;
-    height: 250px;
-    opacity: 0.5;
-    @media screen and (min-width : 768px) {
-        height: 400px;
-    }
-`;
-
 const Image = styled.img`
   width: 100%;
   max-width: 400px;
@@ -74,47 +66,7 @@ const SectionHeader = styled.h2`
   margin-bottom: 10px;
 `;
 
-const PictureWrapper = styled.div`
-    width: 100%;
-    height: 250px;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 30px;
-    @media screen and (min-width : 768px) {
-        height: 400px;
-    }
-`;
 
-const Title = styled.h1`
-    text-align: center;
-    color: white;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    background: none;
-    font-family: 'arial';
-    @media screen and (min-width : 768px) {
-        top: 140px;
-    }
-`;
-
-const Summary = styled.p`
-    color: white;
-    text-align: center;
-    position: absolute;
-    top: 120px;
-    left: 0;
-    right: 0;
-    background: none;
-    font-family: 'arial';
-    font-weight: 700;
-    @media screen and (min-width : 768px) {
-        top: 210px;
-        
-    }
-`;
 
 // 섹션 컴포넌트
 const AboutSection = () => (
@@ -166,21 +118,19 @@ const App = () => {
   };
 
   return (
+    <>
+    <Header />
+    <Slider title="CPU" content="전북대학교 중앙 컴퓨터동아리  CPU"/>
     <Container>
-      <Header />
-      <PictureWrapper>
-        <HeaderImg src= {MainPitcture} alt="pic"/>
-        <Title>About CPU</Title>
-        <Summary>전북대학교 중앙 컴퓨터동아리 CPU</Summary>
-      </PictureWrapper>
       <TabContainer>
         <TabButton isActive={activeTab === 'about'} onClick={() => setActiveTab('about')}>소개</TabButton>
         <TabButton isActive={activeTab === 'location'} onClick={() => setActiveTab('location')}>동아리방</TabButton>
         <TabButton isActive={activeTab === 'management'} onClick={() => setActiveTab('management')}>운영진</TabButton>
       </TabContainer>
       {renderContent()}
-      <Footer /> {/* Footer는 별도의 스타일을 가지므로 그대로 사용 */}
     </Container>
+    <Footer /> {/* Footer는 별도의 스타일을 가지므로 그대로 사용 */}
+    </>
   );
 };
 
