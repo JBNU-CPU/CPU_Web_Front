@@ -186,8 +186,9 @@ const Community = () => {
   };
 
   return (
+    <>
+    <Header />
     <Container>
-      <Header />
       <PictureWrapper>
         <HeaderImg src= {MainPitcture} alt="pic"/>
         <Title>커뮤니티</Title>
@@ -235,8 +236,10 @@ const Community = () => {
         <Button>글쓰기</Button>
       </div>
 
-      <Footer />
+      
     </Container>
+    <Footer />
+    </>
   );
 };
 
