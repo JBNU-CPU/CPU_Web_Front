@@ -126,14 +126,14 @@ const Menu = () => {
                 {isBoardOpen && (
                     <SubMenuWrapper>
                         <SubMenu>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = 'notification'>공지사항</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = 'community'>커뮤니티</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = 'gallery'>갤러리</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = '/notification'>공지사항</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = '/community'>커뮤니티</StyledLink></Menuli>
+                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = '/gallery'>갤러리</StyledLink></Menuli>
                         </SubMenu>
                     </SubMenuWrapper>
                 )}
-                <Menuli><StyledLink to = 'recruit'>Recruit</StyledLink></Menuli>
-                <Menuli><StyledLink to = 'management'>Management</StyledLink></Menuli>
+                <Menuli><StyledLink to = '/recruit'>Recruit</StyledLink></Menuli>
+                <Menuli><StyledLink to = '/management'>Management</StyledLink></Menuli>
             </MenuWrapper>
             <LoginWrapper>
                 <Login><StyledLink to = '/login'>Log in</StyledLink></Login>
