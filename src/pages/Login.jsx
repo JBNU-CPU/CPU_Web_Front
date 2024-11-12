@@ -7,29 +7,37 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
 
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
 const Container = styled.form`
-    width: 100%;
+    margin-top: 100px;
     height: auto;
-    background: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow-x: hidden;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1); /* 반투명한 배경 */
+    backdrop-filter: blur(10px); /* 블러 효과 */
 `
 
 const MainName = styled.p`
     font: bold 30px 'arial';
     color: white;
     background: none;
-    padding-top: 63px;
+    padding-top: 43px;
+    padding-bottom: 40px;
 `
 
 const StyledInput = styled.input`
     width: 280px;
     height: 45px;
-    background: #1B1B25;
     border : none;
     border-radius: 14px;
     margin: 25px;
@@ -116,7 +124,8 @@ const Join = () => {
     return(
         <>
             <Header/>
-            <Container onSubmit = {handleLogin}>
+            <Wrapper>
+                <Container onSubmit = {handleLogin}>
                 <MainName>Log in</MainName>
                 <StyledInput type='text' placeholder="아이디를 입력해주세요" ref = {firstInputRef} value={username} onChange={(e)=>{setusername(e.target.value)}}/>
                 <StyledInput type = 'password' placeholder="비밀번호를 입력해주세요" value={password} onChange = {(e) => {setpassword(e.target.value)}}/>   
@@ -130,6 +139,7 @@ const Join = () => {
                     <StyledLink to = '/join'>회원가입</StyledLink>
                 </JoinWrapper>
             </Container>
+            </Wrapper>
         </>
     );
 };
