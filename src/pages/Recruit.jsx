@@ -4,11 +4,13 @@ import Header from "../components/Header";
 
 const Wrapper = styled.div`
     width: calc(100%);
-    height: calc(100vh);
+    height: calc(100vh-60px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    margin-top: 30px;
 `
 
 const Icon = styled(LuConstruction)`
