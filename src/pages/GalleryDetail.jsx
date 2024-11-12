@@ -148,6 +148,7 @@ const GalleryDetail=()=>{
       try {
         const response = await axios.get(`http://3.36.125.67:8080/post/${id}`);
         console.log('Fetched post data:', response.data); // Log data to the console
+        alert("asdf")
       } catch (error) {
         console.error('Error fetching post:', error);
         alert('해당 게시물을 찾을 수 없습니다.');

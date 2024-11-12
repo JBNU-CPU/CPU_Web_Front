@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import Header from '../components/Header'; // 헤더 컴포넌트 임포트
 import Footer from '../components/Footer'; 
 import Slider from "../components/ImgSlider";
-import MainPitcture from './Pic/StudyMain.png'
+
+import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
 // 전체 페이지를 감싸는 컨테이너
 const Container = styled.div`
   padding: 20px;
   font-family: Arial, sans-serif;
   color: white;
-  background-color: #1a1a1a;
   min-height: 100vh;
   box-sizing: border-box;
 `;
@@ -57,6 +57,7 @@ const Table = styled.table`
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
+  background-color : yellow;
 `;
 
 const TableHead = styled.th`
@@ -78,12 +79,6 @@ const TableCell = styled.td`
   border-bottom: 1px solid #444;
 `;
 
-// 페이지네이션과 버튼
-const Pagination = styled.div`
-  text-align: center;
-  margin-top: 20px;
-`;
-
 const Button = styled.button`
   padding: 5px 10px;
   background-color: #555;
@@ -95,6 +90,41 @@ const Button = styled.button`
     background-color: #777;
   }
 `;
+const PageIndex = styled.div`
+	display : flex;
+	align-items : center;
+	justify-content : center;
+	flex-direction : row;
+	margin : 10px;
+    background-color : none;
+	p{
+		color : white;
+		cursor : default;
+	}
+`
+const PageBtn = styled.button`
+	margin: 0 5px;
+	background-color: rgba(0,0,0,0);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	display : flex;
+	justify-content : center;
+	text-align : center;
+	&:disabled {
+		cursor : default;
+	}
+`
+const ArrowForward = styled(MdOutlineArrowForwardIos)`
+  margin-left: 1px;
+  color: ${(props) => (props.disabled ? 'grey' : 'white')};
+`;
+const ArrowBack = styled(MdOutlineArrowBackIos)`
+    margin-left: 1px;
+    color: ${(props) => (props.disabled ? 'grey' : 'white')};
+`;
+
 const Notification = () => {
     const [searchType, setSearchType] = useState('title');
     const [searchTerm, setSearchTerm] = useState('');
@@ -107,6 +137,22 @@ const Notification = () => {
       { id: 6, title: 'Unity 2D 프로젝트', author: '박도현', date: '24.08.31' },
       { id: 7, title: 'Unity 2D 프로젝트', author: '박도현', date: '24.08.31' },
     ];
+    const [currentPg, setCurrentPg] = useState(0); //현재 페이지
+	const itemsPerPg = 10; // 페이지당 나타낼 게시물 수
+	const totalPg = Math.ceil(posts.length/itemsPerPg); // 전체 페이지 계산
+	const currentItem = posts.slice(currentPg*itemsPerPg, (currentPg+itemsPerPg)); // 현재 페이지에 나타낼 게시물
+
+	const nextPg = () =>{
+		if(currentPg<totalPg-1){
+			setCurrentPg(currentPg+1);
+		}
+	};
+
+	const prevPg = () =>{
+		if(currentPg>0){
+			setCurrentPg(currentPg-1);
+		}
+	};
     const handleSearch = () => {
         // 검색 로직을 여기에 추가 (예: API 요청 등)
         console.log(`검색 유형: ${searchType}, 검색어: ${searchTerm}`);
@@ -116,9 +162,8 @@ const Notification = () => {
         <Header/>
         <Slider title="공지사항"/>
         <Container>
-      
 
-      <SearchSection>
+        <SearchSection>
         <Select value={searchType} onChange={(e) => setSearchType(e.target.value)}>
           <option value="title">제목</option>
           <option value="author">작성자</option>
@@ -152,9 +197,11 @@ const Notification = () => {
         </tbody>
       </Table>
 
-      <Pagination>
-        <Button>◀</Button> 1 / 11 <Button>▶</Button>
-      </Pagination>
+      <PageIndex>
+		<PageBtn onClick={prevPg} disabled={currentPg===0}><ArrowBack disabled={currentPg===0}/></PageBtn>
+		<p style={{font:'bold 13px "arial"'}}>{currentPg+1} / {totalPg}</p>
+		<PageBtn onClick={nextPg} disabled={currentPg===totalPg-1}><ArrowForward disabled={currentPg===totalPg-1}/></PageBtn>
+	    </PageIndex>
       
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         <Button>글쓰기</Button>
