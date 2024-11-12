@@ -10,7 +10,7 @@ import img from '../components/SliderImg/img1.png';
 import posts from '../posts/GalleryPosts';
 
 const Wrap = styled.div`
-	width : 100%;
+	width : calc(100%);
 	display : flex;
 	align-items : center;
 	flex-direction : column;
@@ -19,12 +19,12 @@ const Button = styled.button`
 	display : flex;
 	flex-direction : column;
 	align-items : center;
-	width: 80%;
-  border-radius: 10px;
-  padding: 0;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
+	width: calc(60%);
+  	border-radius: 5px;
+  	padding: 0;
+  	border: none;
+  	cursor: pointer;
+  	overflow: hidden;
 	margin: 30px;
 
 	img{
@@ -37,8 +37,9 @@ const Button = styled.button`
 `
 const Text = styled.text`
 	color: ${props => props.color || '#F5F7FF'};
-	font-size: ${props => props.fontSize || '15px'};
+	font: bold ${props => props.fontSize || '15px'} 'arial';
 	margin-top: 5px;
+
 `;
 const PageIndex = styled.div`
 	display : flex;
@@ -117,7 +118,7 @@ const Gallery = () => {
 				))}
 				<PageIndex>
 					<PageBtn onClick={prevPg} disabled={currentPg===0}><ArrowBack disabled={currentPg===0}/></PageBtn>
-					<p>{currentPg+1} / {totalPg}</p>
+					<p style={{font:'bold 13px "arial"'}}>{currentPg+1} / {totalPg}</p>
 					<PageBtn onClick={nextPg} disabled={currentPg===totalPg-1}><ArrowForward disabled={currentPg===totalPg-1}/></PageBtn>
 				</PageIndex>
 

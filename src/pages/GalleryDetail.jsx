@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 const MainWrap = styled.div`
   width : 90%;
-  background-color : #121319;
+  background: transparent;
   display : flex;
   flex-direction : column;
   padding : 5%;
@@ -43,6 +43,7 @@ const InfoWrap = styled.div`
   justify-content : center;
   background-color : rgba(0,0,0,0);
   margin-bottom : 10px;
+  
 `;
 const InfoT = styled.text`
   color : #BCC0CF;
@@ -63,46 +64,34 @@ const ContentT = styled.text`
 `;
 const StyledCarousel = styled(Carousel)`
   margin : 10px 0 10px 0;
-  background-color : rgba(0,0,0,0);
-  .slider-wrapper{
-    background-color : rgba(0,0,0,0);
-  }
+  background: transparent;
   .slide{
     display : flex;
     justify-content : center;
     align-items : center;
-    background-color : #121319;
   }
   .slide img{
     width : 90%;
     height : auto;
     border-radius : 5px;
   }
-  .slide div{
-    background-color : #121319;
-  }
   .control-dots {
-    background-color : rgba(0,0,0,0);
     flex-direction : row;
     display : flex;
     justify-content : center;
-  }
-  .carousel{
-    background-color : rgba(0,0,0,0);
+    background: none;
   }
   .thumbs-wrapper {
     margin: 0 5%;
     display : flex;
     align-items : center;
     justify-content : flex-start;
-    background-color : #121319;
   }
   .thumbs{
     display : flex;
     justify-content :center;
     align-items : center;
     padding : 0;
-    background-color : #121319;
   }
   .thumb{
     width : 60px !important;
@@ -114,7 +103,6 @@ const StyledCarousel = styled(Carousel)`
     justify-content : center;
     align-items : center;
     margin : 0 5px;
-    background-color : #121319;
   }
   img{
     width : 100%;
@@ -128,7 +116,6 @@ const StyledCarousel = styled(Carousel)`
   .thumb:hover {
     opacity: 0.8;
     cursor : pointer;
-    background-color : #121319;
 }
   .carousel-status {
     display: none; /* 요소를 숨깁니다 */
@@ -144,6 +131,7 @@ const CustomIndicator = styled.div`
   cursor: pointer;
   &:hover {
     background-color: #f5f7ff; /* 호버 효과 */
+    
   }
 `;
 
