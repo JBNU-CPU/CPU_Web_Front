@@ -25,6 +25,7 @@ const Text = styled.p`
     padding-left: 10px;
     font: bold 20px 'arial';
     margin : 0;
+    margin-left: 20px;
     @media screen and (max-width: 768px){
         display: none;
     }
@@ -35,6 +36,7 @@ const Img = styled.img`
     height: 100%;
     padding: 0;
     margin: 0;
+    padding-left: 20px;
 `
 
 const ImgLink = styled(Link)`
