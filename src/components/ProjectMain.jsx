@@ -23,6 +23,7 @@ const Summary = styled.p`
     font: 400 14px 'arial';
     text-align: center;
     padding-bottom: 20px;
+    margin-inline: 20px;
 `;
 
 const SubmitWrapper = styled.div`

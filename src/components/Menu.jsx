@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import logo from './logo/CPU_logo_white.png';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     width: calc(40%);
@@ -13,20 +13,20 @@ const Container = styled.div`
     flex-direction: column;
     z-index: 10;
     top: 60px;
-`
+`;
 
 const LogoWrapper = styled.div`
     display: flex;
     justify-content: center;
     background: none;
     padding: 10px;
-`
+`;
 
 const Logo = styled.img`
     background: none;
     width: 90px;
     height: 90px;
-`
+`;
 
 const MenuWrapper = styled.ul`
     list-style: none;
@@ -35,7 +35,7 @@ const MenuWrapper = styled.ul`
     text-align: center;
     margin: 0;
     padding: 0;
-`
+`;
 
 const Menuli = styled.li`
     color: white;
@@ -43,13 +43,13 @@ const Menuli = styled.li`
     padding-top: 15px;
     padding-bottom: 15px;
     cursor: pointer;
-`
+`;
 
 const SubMenuWrapper = styled.div`
     display: flex;
     justify-content: center;
     background: none;
-`
+`;
 
 const SubMenu = styled.ul`
     background: none;
@@ -59,15 +59,15 @@ const SubMenu = styled.ul`
     margin: 0;
     width: 150px;
     font: bold 15px 'arial';
-`
+`;
 
-const LoginWrapper =styled.div`
+const LoginWrapper = styled.div`
     background: none;
     display: flex;
     justify-content: center;
     position: relative;
     top: 100px;
-`
+`;
 
 const Login = styled.button`
     align-items: center;
@@ -78,37 +78,42 @@ const Login = styled.button`
     font-weight: 700;
     width: 70px;
     height: 30px;
-    color : white;
-`
+    color: white;
+`;
 
 const StyledLink = styled(Link)`
     background: none;
     text-decoration: none;
     color: white;
-    &:hover{
+    &:hover {
         cursor: pointer;
-        color:gray;
+        color: gray;
     }
-`
+`;
 
 const Menu = () => {
+    const navigate = useNavigate();
     const [isStudyOpen, setIsStudyOpen] = useState(false);
     const [isBoardOpen, setIsBoardOpen] = useState(false);
 
     const handleStudyClick = () => {
         setIsStudyOpen(prev => !prev);
-        setIsBoardOpen(false); // Board가 열려 있으면 닫기
+        setIsBoardOpen(false);
     };
 
     const handleBoardClick = () => {
         setIsBoardOpen(prev => !prev);
-        setIsStudyOpen(false); // Study가 열려 있으면 닫기
+        setIsStudyOpen(false);
+    };
+
+    const handleSubMenuClick = (tab) => {
+        navigate('/studymain', { state: { tab } });
     };
 
     return (
         <Container>
             <LogoWrapper>
-                <Logo src={logo}/>
+                <Logo src={logo} />
             </LogoWrapper>
             <MenuWrapper>
                 <Menuli><StyledLink to='/about'>About CPU</StyledLink></Menuli>
@@ -116,9 +121,9 @@ const Menu = () => {
                 {isStudyOpen && (
                     <SubMenuWrapper>
                         <SubMenu>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/studymain'>세션</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/studymain'>스터디</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to ='/studymain'>프로젝트</StyledLink></Menuli>
+                            <Menuli style={{ color: '#C0C0C0' }} onClick={() => handleSubMenuClick('section')}>세션</Menuli>
+                            <Menuli style={{ color: '#C0C0C0' }} onClick={() => handleSubMenuClick('study')}>스터디</Menuli>
+                            <Menuli style={{ color: '#C0C0C0' }} onClick={() => handleSubMenuClick('project')}>프로젝트</Menuli>
                         </SubMenu>
                     </SubMenuWrapper>
                 )}
@@ -126,17 +131,17 @@ const Menu = () => {
                 {isBoardOpen && (
                     <SubMenuWrapper>
                         <SubMenu>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = '/notification'>공지사항</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = '/community'>커뮤니티</StyledLink></Menuli>
-                            <Menuli style={{color : '#C0C0C0'}}><StyledLink to = '/gallery'>갤러리</StyledLink></Menuli>
+                            <Menuli style={{ color: '#C0C0C0' }}><StyledLink to='/notification'>공지사항</StyledLink></Menuli>
+                            <Menuli style={{ color: '#C0C0C0' }}><StyledLink to='/community'>커뮤니티</StyledLink></Menuli>
+                            <Menuli style={{ color: '#C0C0C0' }}><StyledLink to='/gallery'>갤러리</StyledLink></Menuli>
                         </SubMenu>
                     </SubMenuWrapper>
                 )}
-                <Menuli><StyledLink to = '/recruit'>Recruit</StyledLink></Menuli>
-                <Menuli><StyledLink to = '/management'>Management</StyledLink></Menuli>
+                <Menuli><StyledLink to='/recruit'>Recruit</StyledLink></Menuli>
+                <Menuli><StyledLink to='/management'>Management</StyledLink></Menuli>
             </MenuWrapper>
             <LoginWrapper>
-                <Login><StyledLink to = '/login'>Log in</StyledLink></Login>
+                <Login><StyledLink to='/login'>Log in</StyledLink></Login>
             </LoginWrapper>
         </Container>
     );
