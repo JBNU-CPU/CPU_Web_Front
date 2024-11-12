@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import MainPitcture from './Pic/StudyMain.png'
 import Slider from "../components/ImgSlider";
 
-
 // 메인 컨테이너 스타일
 const Container = styled.div`
   padding: 20px;
@@ -13,17 +12,17 @@ const Container = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; // 화면을 채우기 위한 높이 설정
+  min-height: 100vh;
   box-sizing: border-box;
 `;
 
 const TabContainer = styled.div`
   display: flex;
-  justify-content: center; /* 탭 버튼들을 중앙으로 배치 */
+  justify-content: center;
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
-  width: 100%; /* 부모 요소 너비에 맞춤 */
+  width: 100%;
   text-align: center;
 `;
 
@@ -33,6 +32,12 @@ const TabButton = styled.button`
   color: ${({ isActive }) => (isActive ? 'gray' : 'white')};
   font-size: 18px;
   cursor: pointer;
+  font: bold 17px 'arial';
+  padding-bottom: 5px;
+  border-bottom: 2px solid ${({ isActive }) => (isActive ? '#ea0079' : 'transparent')};
+  &:hover {
+    border-bottom: 2px solid #ea0079;
+  }
 `;
 
 // 이미지와 텍스트 스타일
@@ -49,13 +54,11 @@ const Image = styled.img`
   margin: 10px 0;
 `;
 
-
 const Text = styled.p`
   font: bold 13px 'arial';
   line-height: 1.5;
   margin: 10px 0;
   text-align: left; 
-  align-items: left;
 `;
 
 const SectionHeader = styled.h2`
@@ -64,8 +67,6 @@ const SectionHeader = styled.h2`
   font-size: 24px;
   margin-bottom: 20px;
 `;
-
-
 
 // 섹션 컴포넌트
 const AboutSection = () => (
@@ -118,17 +119,17 @@ const App = () => {
 
   return (
     <>
-    <Header />
-    <Slider title="CPU" content="전북대학교 중앙 컴퓨터동아리  CPU"/>
-    <Container>
-      <TabContainer>
-        <TabButton isActive={activeTab === 'about'} onClick={() => setActiveTab('about')}>소개</TabButton>
-        <TabButton isActive={activeTab === 'location'} onClick={() => setActiveTab('location')}>동아리방</TabButton>
-        <TabButton isActive={activeTab === 'management'} onClick={() => setActiveTab('management')}>운영진</TabButton>
-      </TabContainer>
-      {renderContent()}
-    </Container>
-    <Footer /> {/* Footer는 별도의 스타일을 가지므로 그대로 사용 */}
+      <Header />
+      <Slider title="CPU" content="전북대학교 중앙 컴퓨터동아리  CPU"/>
+      <Container>
+        <TabContainer>
+          <TabButton isActive={activeTab === 'about'} onClick={() => setActiveTab('about')}>소개</TabButton>
+          <TabButton isActive={activeTab === 'location'} onClick={() => setActiveTab('location')}>동아리방</TabButton>
+          <TabButton isActive={activeTab === 'management'} onClick={() => setActiveTab('management')}>운영진</TabButton>
+        </TabContainer>
+        {renderContent()}
+      </Container>
+      <Footer />
     </>
   );
 };
