@@ -8,6 +8,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import posts from '../posts/GalleryPosts';
 import List_Btn from "../components/List_Btn";
+import axios from 'axios';
+
 
 const Container = styled.div`
   display : flex;
@@ -154,11 +156,18 @@ const GalleryDetail=()=>{
   const post = posts.find((item)=>item.id === parseInt(id));
   
   useEffect(() => {
-    if (!post) {
-      alert('해당 게시물을 찾을 수 없습니다.');
-      navigate('/gallery');
-    }
-  }, [post, navigate]);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://3.36.125.67:8080/post/${id}`);
+        console.log('Fetched post data:', response.data); // Log data to the console
+      } catch (error) {
+        console.error('Error fetching post:', error);
+        alert('해당 게시물을 찾을 수 없습니다.');
+        navigate('/gallery');
+      }
+    };
+    fetchData();
+  }, [id, navigate]);
 
   //줄바꿈(엔터) 처리
   const enterDescription = post.description.split('\n').map((line, index) => (
@@ -209,9 +218,6 @@ const GalleryDetail=()=>{
 
     </Container>
     <Footer/>
-  
-
-
     </>
 
   );
@@ -220,3 +226,27 @@ const GalleryDetail=()=>{
 }
 
 export default GalleryDetail;
+
+
+/*
+const GalleryDetail = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://3.36.125.67:8080/post/${id}`);
+        console.log('Fetched post data:', response.data); // Log data to the console
+      } catch (error) {
+        console.error('Error fetching post:', error);
+        alert('해당 게시물을 찾을 수 없습니다.');
+        navigate('/gallery');
+      }
+    };
+    fetchData();
+  }, [id, navigate]);
+
+  return null; // Render nothing in the component
+};
+*/
