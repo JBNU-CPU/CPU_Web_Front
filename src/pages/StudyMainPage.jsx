@@ -76,6 +76,7 @@ const Select = styled.li`
     margin: 0px;
     padding: 5px 10px;
     text-align: center;
+    border-bottom: 2px solid transparent;
     &:hover{
         color: gray;
         cursor: pointer;

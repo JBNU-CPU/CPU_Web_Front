@@ -33,7 +33,6 @@ const TabButton = styled.button`
   color: ${({ isActive }) => (isActive ? 'gray' : 'white')};
   font-size: 18px;
   cursor: pointer;
-  }
 `;
 
 // 이미지와 텍스트 스타일
@@ -52,7 +51,7 @@ const Image = styled.img`
 
 
 const Text = styled.p`
-  font-size: 16px;
+  font: bold 13px 'arial';
   line-height: 1.5;
   margin: 10px 0;
   text-align: left; 
@@ -63,7 +62,7 @@ const SectionHeader = styled.h2`
   align-items: center;
   text-align: center;
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 

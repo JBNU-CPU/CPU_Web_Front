@@ -7,7 +7,7 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1.5px solid #BCC0CF;
+    border: 1.5px solid #ea0079;
     border-radius: 5px;
     background: none;
     font: bold 12px 'arial';
