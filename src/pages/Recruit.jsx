@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { LuConstruction } from "react-icons/lu";
+import Header from "../components/Header";
 
 const Wrapper = styled.div`
     width: calc(100%);
@@ -25,11 +26,14 @@ const Text = styled.p`
 
 const Recruit = () => {
     return(
-        <Wrapper>
-            <Icon/>
-            <Text>잠시 공사중 !</Text>
-            <Text>모집은 구글폼으로 진행합니다!</Text>
-        </Wrapper>
+        <>
+            <Header/>
+            <Wrapper>
+                <Icon/>
+                <Text>잠시 공사중 !</Text>
+                <Text>모집은 구글폼으로 진행합니다!</Text>
+            </Wrapper>
+        </>
     );
 };
 
