@@ -8,12 +8,14 @@ import CommentSection from './CommentSection';
 
 // 전체 페이지를 감싸는 컨테이너
 const Container = styled.div`
-  padding: 20px;
   font-family: Arial, sans-serif;
   color: white;
-  background-color: #1a1a1a;
+  background: transparent;
   min-height: 100vh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 const HeaderImg = styled.img`
     width: 100%;
@@ -92,6 +94,7 @@ const SearchSection = styled.div`
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
+  background: transparent;
 `;
 
 const Select = styled.select`
@@ -113,32 +116,38 @@ const SearchInput = styled.input`
 
 const SearchButton = styled.button`
   padding: 5px 10px;
-  background-color: #555;
+  font: bold 13px 'arial';
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
+  border: 1px solid #EA0079;
   &:hover {
-    background-color: #777;
+    color: gray;
   }
 `;
 
 // 제목 검색 테이블 스타일
 const Table = styled.table`
-  width: 100%;
+  width: calc(80%);
   margin-top: 20px;
   border-collapse: collapse;
+  background: transparent;
+  text-align: center;
 `;
 
 const TableHead = styled.th`
   padding: 10px;
   border-bottom: 2px solid #444;
-  text-align: left;
+  text-align: center;
   color: #aaa;
+  background: transparent;
+  font: bold 14px 'arial';
 `;
 
 const TableRow = styled.tr`
   cursor: pointer;
+  background: transparent;
   &:hover {
     background-color: #333;
   }
@@ -147,23 +156,32 @@ const TableRow = styled.tr`
 const TableCell = styled.td`
   padding: 10px;
   border-bottom: 1px solid #444;
+  background: transparent;
+  font: bold 14px 'arial';
 `;
 
 // 페이지네이션과 버튼
 const Pagination = styled.div`
   text-align: center;
   margin-top: 20px;
+  background: transparent;
+
 `;
 
 const Button = styled.button`
   padding: 5px 10px;
-  background-color: #555;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  background: transparent;
+  border: 1px solid #EA0079;
+  font: bold 13px 'arial';
   &:hover {
-    background-color: #777;
+    color: #777;
+  }
+  &.page{
+    border: none;
   }
 `;
 
@@ -228,10 +246,10 @@ const Community = () => {
       </Table>
 
       <Pagination>
-        <Button>◀</Button> 1 / 11 <Button>▶</Button>
+        <Button className='page'>◀</Button> 1 / 11 <Button className='page'>▶</Button>
       </Pagination>
       
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <div style={{ textAlign: 'center', marginTop: '20px', background :'transparent', marginBottom:'20px'}}>
         <Button>글쓰기</Button>
       </div>
 
