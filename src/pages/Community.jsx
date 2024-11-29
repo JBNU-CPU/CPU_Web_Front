@@ -178,16 +178,16 @@ const Community = () => {
   const postsPerPage = 5;
 
   const posts = [
-    { id: 1, title: 'Unity 2D 프로젝트', author: '박도현', date: '24.08.31' },
-    { id: 2, title: 'React 기본 사용법', author: '김지훈', date: '24.09.01' },
-    { id: 3, title: 'Node.js 서버 구축', author: '이수진', date: '24.09.02' },
-    { id: 4, title: 'CSS Flexbox 이해하기', author: '정민수', date: '24.09.03' },
-    { id: 5, title: 'Redux 사용법', author: '한은지', date: '24.09.04' },
+    { id: 1, title: '스테이크 맛있게 굽는 방법', author: '김동준', date: '24.08.31' },
+    { id: 2, title: 'React 기본 사용법', author: '김동준', date: '24.09.01' },
+    { id: 3, title: 'Node.js 서버 구축', author: '김동준', date: '24.09.02' },
+    { id: 4, title: 'CSS Flexbox 이해하기', author: '김동준', date: '24.09.03' },
+    { id: 5, title: 'Redux 사용법', author: '박도현', date: '24.09.04' },
     { id: 6, title: 'Firebase와 연동하기', author: '박도현', date: '24.09.05' },
-    { id: 7, title: 'GraphQL 시작하기', author: '김지훈', date: '24.09.06' },
-    { id: 8, title: 'Docker 기본 사용법', author: '이수진', date: '24.09.07' },
-    { id: 9, title: 'GitHub Actions 활용', author: '정민수', date: '24.09.08' },
-    { id: 10, title: 'Vue.js와 Vuex', author: '한은지', date: '24.09.09' },
+    { id: 7, title: 'GraphQL 시작하기', author: '박도현', date: '24.09.06' },
+    { id: 8, title: 'Docker 기본 사용법', author: '박도현', date: '24.09.07' },
+    { id: 9, title: 'GitHub Actions 활용', author: '박도현', date: '24.09.08' },
+    { id: 10, title: 'Vue.js와 Vuex', author: '박도현', date: '24.09.09' },
   ];
 
   const handleSearch = () => {

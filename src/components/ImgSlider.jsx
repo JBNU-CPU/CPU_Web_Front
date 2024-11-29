@@ -71,7 +71,7 @@ const TitleWrap = styled.div`
 `
 
 
-const ImgSlider = ({title, content})=>{
+const ImgSlider = ({title, content=""})=>{
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
