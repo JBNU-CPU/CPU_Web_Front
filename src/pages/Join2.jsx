@@ -6,9 +6,16 @@ import Complete_Btn from "../components/Complete_Btn";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
 
 const Container = styled.main`
-    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
     height: auto;
     background: black;
     display: flex;
@@ -16,6 +23,9 @@ const Container = styled.main`
     justify-content: center;
     align-items: center;
     position: relative;
+    background: rgba(255, 255, 255, 0.1); /* 반투명한 배경 */
+    backdrop-filter: blur(10px); /* 블러 효과 */
+    border-radius: 5px;
 `
 
 const MainName = styled.p`
@@ -134,23 +144,25 @@ const Join2 = () => {
     return(
         <>
             <Header/>
-            <Container>
-                <MainName>Join</MainName>
-                <NickText>닉네임</NickText>
-                <StyledInput type='text' placeholder="닉네임을 입력해주세요" ref={firstInputRef} value={nickName} onChange={(e) => {setnickName(e.target.value)}}/>
-                <IDText>아이디(학번)</IDText>
-                <StyledInput type='id' placeholder="학번을 입력해주세요" value={username} onChange={(e)=>{setusername(e.target.value)}}/>
-                <PasswordText>비밀번호</PasswordText>
-                <StyledInput type='password' placeholder="비밀번호를 입력해주세요" value={password} onChange={(e) => setpassword(e.target.value)}/>
-                <RePasswordText>비밀번호 확인</RePasswordText>
-                <StyledInput type='password' placeholder="비밀번호를 다시 입력해주세요" value={repassword} onChange={(e) => setrepassword(e.target.value)}/>
-                <CompleteWrapper>
-                    <Complete_Btn onClick = {onClick} isActive={isButtonActive}/>
-                </CompleteWrapper>
-                <QuestWrapper>
-                    <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>
-                </QuestWrapper>
-            </Container>
+            <Wrapper>
+                <Container>
+                    <MainName>Join</MainName>
+                    <NickText>닉네임</NickText>
+                    <StyledInput type='text' placeholder="닉네임을 입력해주세요" ref={firstInputRef} value={nickName} onChange={(e) => {setnickName(e.target.value)}}/>
+                    <IDText>아이디(학번)</IDText>
+                    <StyledInput type='id' placeholder="학번을 입력해주세요" value={username} onChange={(e)=>{setusername(e.target.value)}}/>
+                    <PasswordText>비밀번호</PasswordText>
+                    <StyledInput type='password' placeholder="비밀번호를 입력해주세요" value={password} onChange={(e) => setpassword(e.target.value)}/>
+                    <RePasswordText>비밀번호 확인</RePasswordText>
+                    <StyledInput type='password' placeholder="비밀번호를 다시 입력해주세요" value={repassword} onChange={(e) => setrepassword(e.target.value)}/>
+                    <CompleteWrapper>
+                        <Complete_Btn onClick = {onClick} isActive={isButtonActive}/>
+                    </CompleteWrapper>
+                    <QuestWrapper>
+                        <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>
+                    </QuestWrapper>
+                </Container>
+            </Wrapper>
         </>
     );
 };

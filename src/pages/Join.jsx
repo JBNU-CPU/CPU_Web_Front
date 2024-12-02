@@ -8,10 +8,15 @@ import Resend_Btn from "../components/Resend_Btn";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
 
 const Container = styled.main`
-    width: 100%;
-    max-width: 100vw;
+    margin-top: 100px;
     height: auto;
     background: black;
     display: flex;
@@ -20,6 +25,9 @@ const Container = styled.main`
     align-items: center;
     position: relative;
     overflow-x: hidden;
+    background: rgba(255, 255, 255, 0.1); /* 반투명한 배경 */
+    backdrop-filter: blur(10px); /* 블러 효과 */
+    border-radius: 5px;
 `
 
 const MainName = styled.p`
@@ -139,23 +147,26 @@ const Join = () => {
     return(
         <>
             <Header/>
-            <Container>
-                <MainName>Join</MainName>
-                <NameText>이름</NameText>
-                <StyledInput type='text' placeholder="이름을 입력해주세요" ref= {firstInputRef} value={personName} onChange={(e) => {setpersonName(e.target.value)}}/>
-                <EmailText>이메일</EmailText>
-                <StyledInput type = 'email' placeholder="이메일 주소를 입력해주세요" value={email} onChange={(e) => {setemail(e.target.value)}}/>
-                <CertificationWrapper onClick={CertiClick}>
-                    {certi ? <Resend_Btn/> : <Certification isActive={isButtonActive}/>}
-                </CertificationWrapper>
-                {certi ? <StyledInput type="text" placeholder="인증번호" ref={secondInputRef} value={certinum} onChange={(e) => setcertinum(e.target.value)}/> : null}
-                <NextWrapper>
-                    <Next_Btn onClick={Joinnavigate} isActive={isNextButtonActive}/>
-                </NextWrapper>
-                <QuestWrapper>
-                    <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>
-                </QuestWrapper>
-            </Container>
+            <Wrapper>
+                <Container>
+                    <MainName>Join</MainName>
+                    <NameText>이름</NameText>
+                    <StyledInput type='text' placeholder="이름을 입력해주세요" ref= {firstInputRef} value={personName} onChange={(e) => {setpersonName(e.target.value)}}/>
+                    <EmailText>이메일</EmailText>
+                    <StyledInput type = 'email' placeholder="이메일 주소를 입력해주세요" value={email} onChange={(e) => {setemail(e.target.value)}}/>
+                    <CertificationWrapper onClick={CertiClick}>
+                        {certi ? <Resend_Btn/> : <Certification isActive={isButtonActive}/>}
+                    </CertificationWrapper>
+                    {certi ? <StyledInput type="text" placeholder="인증번호" ref={secondInputRef} value={certinum} onChange={(e) => setcertinum(e.target.value)}/> : null}
+                    <NextWrapper>
+                        <Next_Btn onClick={Joinnavigate} isActive={isNextButtonActive}/>
+                    </NextWrapper>
+                    <QuestWrapper>
+                        <Quest>이미 계정이 있으신가요?</Quest><StyledLink to = '/login'>로그인</StyledLink>
+                    </QuestWrapper>
+                </Container>
+            </Wrapper>
+        
         </>
     );
 };
